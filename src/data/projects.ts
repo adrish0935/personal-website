@@ -1,0 +1,88 @@
+import { MinimalProject } from "@/types/portfolio";
+
+export const projectsData: MinimalProject[] = [
+  {
+    id: "rv32i-pipeline",
+    title: "RV32I 5-Stage Pipelined RISC-V Core",
+    subtitle: "Classic In-Order Microarchitecture in SystemVerilog",
+    category: "Digital RTL & Architecture",
+    description: "A complete 32-bit RISC-V processor core implementing the RV32I base integer specification. Features classic 5-stage pipelined execution (IF, ID, EX, MEM, WB) with hazard forwarding and dynamic branch prediction.",
+    architecture: "Integrated data forwarding unit eliminating RAW stalls for ALU-to-ALU dependencies. Pipelined hazard detection inserts single-cycle interlocks on load-use hazards.",
+    specs: [
+      { label: "ISA Standard", value: "RISC-V RV32I" },
+      { label: "Target Frequency", value: "100 MHz (FPGA)" },
+      { label: "HDL Language", value: "SystemVerilog-2017" },
+      { label: "Complexity", value: "14,800 Cells" },
+    ],
+    highlights: [
+      "Zero-bubble data forwarding between EX/MEM and ID/EX pipeline stages",
+      "Dynamic 2-bit branch predictor with Branch Target Buffer (BTB)",
+      "Passed 100% of official RISC-V architectural compliance test suites",
+    ],
+    tools: ["AMD Vivado", "ModelSim", "Icarus Verilog", "GTKWave"],
+    githubUrl: "https://github.com/adrish0935/rv32i-core",
+  },
+  {
+    id: "sky130-tapeout",
+    title: "OpenLane SkyWater 130nm ASIC Tapeout Flow",
+    subtitle: "Automated RTL-to-GDSII Physical Implementation",
+    category: "ASIC & Physical Design",
+    description: "Physical implementation and silicon layout of a custom hardware computing unit targeted for the SkyWater 130nm PDK using the open-source OpenROAD and OpenLane toolchain.",
+    architecture: "End-to-end flow execution: logic synthesis, automated floorplanning, placement, clock tree synthesis (CTS), routing, and DRC/LVS physical verification.",
+    specs: [
+      { label: "Process PDK", value: "SkyWater 130nm (sky130_fd_sc_hd)" },
+      { label: "Die Area", value: "0.18 mm²" },
+      { label: "Timing Slack", value: "+0.42ns (Setup Met)" },
+      { label: "Sign-Off DRC/LVS", value: "Clean (0 Violations)" },
+    ],
+    highlights: [
+      "Zero DRC and zero LVS errors confirmed with Magic VLSI and Netgen",
+      "Static Timing Analysis (STA) executed under multi-corner PVT constraints",
+      "Packaged and verified for Tiny Tapeout / Caravel carrier harness",
+    ],
+    tools: ["OpenLane", "OpenROAD", "Magic VLSI", "KLayout", "Netgen"],
+    githubUrl: "https://github.com/adrish0935/sky130-tapeout",
+  },
+  {
+    id: "async-fifo-cdc",
+    title: "Dual-Clock Asynchronous FIFO with Gray CDC",
+    subtitle: "Robust Clock Domain Crossing Buffer",
+    category: "Metastability & Synchronization",
+    description: "Multi-clock domain crossing FIFO buffer engineered for lossless packet streaming between mutually asynchronous write and read clock domains.",
+    architecture: "Utilizes Gray-code pointer conversions to guarantee single-bit transitions per clock edge. Employs dual-stage flip-flop synchronizers to maximize Mean Time Between Failures (MTBF).",
+    specs: [
+      { label: "Write Clock", value: "150 MHz" },
+      { label: "Read Clock", value: "80 MHz" },
+      { label: "Depth x Width", value: "64 x 32-bit" },
+      { label: "CDC Linting", value: "0 Violations" },
+    ],
+    highlights: [
+      "Pointers converted between binary and Gray code across domain boundaries",
+      "Asynchronous full and empty flag generation without false reads",
+      "Validated with formal assertions and clock jitter injection testbenches",
+    ],
+    tools: ["Synopsys Design Compiler", "ModelSim", "QuestaSim"],
+    githubUrl: "https://github.com/adrish0935/async-fifo-cdc",
+  },
+  {
+    id: "fpga-uart-accel",
+    title: "FPGA Matrix Multiplier & Custom UART Protocol",
+    subtitle: "Pipelined Compute Engine on Xilinx Artix-7",
+    category: "FPGA Acceleration",
+    description: "Fixed-point matrix computation accelerator deployed on an AMD Xilinx Artix-7 FPGA, driven by a custom byte-oriented UART streaming protocol from host Python scripts.",
+    architecture: "Pipelined multiply-accumulate (MAC) datapath using on-chip DSP48E1 slices, delivering 18x throughput acceleration over baseline CPU software execution.",
+    specs: [
+      { label: "Target Board", value: "Digilent Basys 3" },
+      { label: "System Clock", value: "100 MHz" },
+      { label: "Resource Usage", value: "4,600 LUTs, 12 DSPs" },
+      { label: "Throughput", value: "18x CPU Baseline" },
+    ],
+    highlights: [
+      "Pipelined fixed-point arithmetic engine utilizing DSP48 slices",
+      "Custom UART frame protocol with CRC parity error checking",
+      "Physical verification via oscilloscope logic captures and loopback validation",
+    ],
+    tools: ["Vivado HLx", "Python PySerial", "GTKWave"],
+    githubUrl: "https://github.com/adrish0935/fpga-uart-accel",
+  },
+];

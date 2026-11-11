@@ -1,0 +1,60 @@
+"use client";
+
+import { skillCategoriesData } from "@/data/skills";
+
+export default function Skills() {
+  return (
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-neutral-800">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-14">
+          <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-3">
+            Skills
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-100 mb-4">
+            Technical Skills
+          </h2>
+          <p className="text-base sm:text-lg text-neutral-400 max-w-3xl leading-relaxed">
+            Hardware description languages, synthesis engines, EDA toolchains, and verification frameworks.
+          </p>
+        </div>
+
+        {/* Matrix Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skillCategoriesData.map((category, idx) => (
+            <div
+              key={idx}
+              className="p-6 bg-neutral-900/60 rounded-lg border border-neutral-800 space-y-4"
+            >
+              <div className="border-b border-neutral-800 pb-3">
+                <h3 className="text-lg font-bold text-neutral-100">
+                  {category.title}
+                </h3>
+                {category.description && (
+                  <p className="text-xs text-neutral-400 mt-1">
+                    {category.description}
+                  </p>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                {category.skills.map((skill, sIdx) => (
+                  <div
+                    key={sIdx}
+                    className="p-2.5 bg-neutral-900 rounded border border-neutral-800 text-neutral-200 flex flex-col justify-between"
+                  >
+                    <span className="font-semibold text-neutral-100">{skill.name}</span>
+                    {skill.tag && (
+                      <span className="text-[10px] text-neutral-500 mt-0.5">{skill.tag}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
