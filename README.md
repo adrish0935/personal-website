@@ -1,5 +1,9 @@
 # personal-website
 
+ npm run dev - $env:Path = "C:\Program Files\nodejs;$env:Path"; npm.cmd run dev
+
+ git - $env:Path = "C:\Users\ADRISH\AppData\Local\Programs\MinGit\cmd;C:\Program Files\nodejs;$env:Path"
+
 > Minimalist personal portfolio of **Adrish**, an Electronics Engineering student at **Haldia Institute of Technology (HIT)** (Class of 2026 – 2030) specializing in **VLSI Design, RISC-V Microarchitecture, and Silicon ASIC Flows**.
 
 Built with [Next.js 15](https://nextjs.org), [React 19](https://react.dev), and [Tailwind CSS](https://tailwindcss.com), following a clean, monochrome editorial technical paper aesthetic inspired by DEVFOLIO.
