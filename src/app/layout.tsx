@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Adrish — VLSI & Silicon Architecture",
   description:
-    "Personal portfolio of Adrish, an Electronics Engineering freshman at Haldia Institute of Technology (HIT) focused on synthesizable RTL, RISC-V pipelined cores, and open-source ASIC flows.",
+    "Personal portfolio of Adrish, an Electronics Engineering student at Haldia Institute of Technology (HIT) focused on synthesizable RTL, RISC-V pipelined cores, and open-source ASIC flows.",
   keywords: [
     "VLSI",
     "Chip Design",
@@ -31,8 +31,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="bg-neutral-950 text-neutral-100 antialiased selection:bg-neutral-800 selection:text-neutral-100">
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 antialiased transition-colors duration-200">
         {children}
       </body>
     </html>

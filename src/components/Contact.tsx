@@ -36,41 +36,41 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-neutral-800">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-neutral-200 dark:border-neutral-800">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-14">
-          <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-3">
+          <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 mb-3">
             Contact
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-100 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
             Get in Touch
           </h2>
-          <p className="text-base sm:text-lg text-neutral-400 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl leading-relaxed">
             Feel free to reach out for VLSI research discussions, open-source silicon projects,
             or hardware internship opportunities.
           </p>
         </div>
 
         {/* Directory Card / Table */}
-        <div className="border border-neutral-800 bg-neutral-900/60 rounded-lg overflow-hidden">
-          <div className="divide-y divide-neutral-800">
+        <div className="border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 rounded-lg overflow-hidden">
+          <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
             {directory.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-neutral-900/90 transition-colors"
+                className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-neutral-50/70 dark:hover:bg-neutral-900/90 transition-colors"
               >
                 <div className="space-y-1">
                   <div className="text-xs font-mono text-neutral-500 uppercase">
                     {item.channel}
                   </div>
-                  <div className="text-base font-semibold text-neutral-100 font-mono">
+                  <div className="text-base font-semibold text-neutral-900 dark:text-neutral-100 font-mono">
                     {item.href ? (
                       <a
                         href={item.href}
                         target={item.href.startsWith("mailto:") ? undefined : "_blank"}
                         rel={item.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                        className="hover:underline hover:text-neutral-300"
+                        className="hover:underline hover:text-neutral-700 dark:hover:text-neutral-300"
                       >
                         {item.address}
                       </a>
@@ -80,20 +80,20 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="text-xs text-neutral-400 max-w-sm sm:text-right">
+                <div className="text-xs text-neutral-500 dark:text-neutral-400 max-w-sm sm:text-right">
                   {item.note}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="p-6 bg-neutral-900/90 border-t border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <span className="text-xs font-mono text-neutral-300">
+          <div className="p-6 bg-neutral-50/90 dark:bg-neutral-900/90 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <span className="text-xs font-mono text-neutral-700 dark:text-neutral-300">
               AVAILABLE FOR VLSI RESEARCH &amp; SILICON INTERNSHIP ROLES
             </span>
             <a
               href={`mailto:${profileData.email}`}
-              className="font-mono text-xs px-3 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-950 font-semibold transition-colors"
+              className="font-mono text-xs px-3 py-1.5 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-100 dark:bg-neutral-100 dark:hover:bg-neutral-200 dark:text-neutral-950 font-semibold transition-colors"
             >
               Send Transmission &rarr;
             </a>
@@ -103,4 +103,3 @@ export default function Contact() {
     </section>
   );
 }
-

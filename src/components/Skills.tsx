@@ -4,17 +4,17 @@ import { skillCategoriesData } from "@/data/skills";
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-neutral-800">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-neutral-200 dark:border-neutral-800">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-14">
-          <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-3">
+          <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 mb-3">
             Skills
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-100 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
             Technical Skills
           </h2>
-          <p className="text-base sm:text-lg text-neutral-400 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl leading-relaxed">
             Hardware description languages, synthesis engines, EDA toolchains, and verification frameworks.
           </p>
         </div>
@@ -24,14 +24,14 @@ export default function Skills() {
           {skillCategoriesData.map((category, idx) => (
             <div
               key={idx}
-              className="p-6 bg-neutral-900/60 rounded-lg border border-neutral-800 space-y-4"
+              className="p-6 bg-white dark:bg-neutral-900/60 rounded-lg border border-neutral-200 dark:border-neutral-800 space-y-4"
             >
-              <div className="border-b border-neutral-800 pb-3">
-                <h3 className="text-lg font-bold text-neutral-100">
+              <div className="border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
                   {category.title}
                 </h3>
                 {category.description && (
-                  <p className="text-xs text-neutral-400 mt-1">
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
                     {category.description}
                   </p>
                 )}
@@ -41,11 +41,11 @@ export default function Skills() {
                 {category.skills.map((skill, sIdx) => (
                   <div
                     key={sIdx}
-                    className="p-2.5 bg-neutral-900 rounded border border-neutral-800 text-neutral-200 flex flex-col justify-between"
+                    className="p-2.5 bg-neutral-50 dark:bg-neutral-900 rounded border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 flex flex-col justify-between"
                   >
-                    <span className="font-semibold text-neutral-100">{skill.name}</span>
+                    <span className="font-semibold text-neutral-900 dark:text-neutral-100">{skill.name}</span>
                     {skill.tag && (
-                      <span className="text-[10px] text-neutral-500 mt-0.5">{skill.tag}</span>
+                      <span className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">{skill.tag}</span>
                     )}
                   </div>
                 ))}
@@ -57,4 +57,3 @@ export default function Skills() {
     </section>
   );
 }
-
